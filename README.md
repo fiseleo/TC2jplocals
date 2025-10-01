@@ -5,7 +5,11 @@ This tool will take a GL excel dump and dump all the localized texts into a cust
 Open using MTP (requires a computer)  
 or
 Open using ADB (requires a computer)
-Android 
+Android
+
 Android\data\com.Yostar.JP.BlueArchive\files\TableBundles
+
 TableCatalog.bytes
+
+
 Android\data\com.Yostar.JP.BlueArchive\files\TableBundles\Catalog
