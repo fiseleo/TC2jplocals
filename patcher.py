@@ -32,22 +32,24 @@ map = {
     "CharacterDialogEmojiExcelTable": "CharacterDialogEmojiExcel",
     "LocalizeCharProfileExcel": "LocalizeCharProfileExcelTable"
 }
+excel_dir = os.path.join("JP_excels", "Excel_Dumped")
+exceldb_dir = os.path.join("JP_excels", "ExcelDB_Dumped")
+output_dir = "output"
+
 if not os.path.exists("JP_excels"):
     os.mkdir("JP_excels")
-if not os.path.exists("JP_excels/excel"):
-    os.mkdir("JP_excels/excel")
-if not os.path.exists("JP_excels/exceldb"):
-    os.mkdir("JP_excels/exceldb")
+if not os.path.exists(excel_dir):
+    os.mkdir(excel_dir)
+if not os.path.exists(exceldb_dir):
+    os.mkdir(exceldb_dir)
 if not os.path.exists("output"):
     os.mkdir("output")
-if not os.path.exists("output/excel"):
-    os.mkdir("output/excel")
-if not os.path.exists("output/exceldb"):
-    os.mkdir("output/exceldb")
+if not os.path.exists("output/Excel_Dumped"):
+    os.mkdir("output/Excel_Dumped")
+if not os.path.exists("output/ExcelDB_Dumped"):
+    os.mkdir("output/ExcelDB_Dumped")
     
-excel_dir = os.path.join("JP_excels", "excel")
-exceldb_dir = os.path.join("JP_excels", "exceldb")
-output_dir = "output"
+
 
 def main():
     locals: dict = json.load(open(os.path.join("data", "gl_locals.json"), encoding='utf-8'))
@@ -78,7 +80,7 @@ def main():
                     except KeyError:
                         continue
                     t['LocalizeJP'] = localized
-        json.dump(data, open(os.path.join(output_dir, "excel", f"{filename}.json"), 'w', encoding='utf-8'), indent=4, ensure_ascii=False)
+        json.dump(data, open(os.path.join(output_dir, "Excel_Dumped", f"{filename}.json"), 'w', encoding='utf-8'), indent=4, ensure_ascii=False)
     for i in jp_exceldb_list:
         name = i
         filename = i
@@ -247,7 +249,7 @@ def main():
                     except KeyError:
                         continue
                     t['LocalizeJP'] = localized
-        json.dump(data, open(os.path.join(output_dir, "exceldb", f"{filename}.json"), 'w', encoding='utf-8'), indent=4, ensure_ascii=False)
+        json.dump(data, open(os.path.join(output_dir, "ExcelDB_Dumped", f"{filename}.json"), 'w', encoding='utf-8'), indent=4, ensure_ascii=False)
         
 if __name__ == '__main__':
     main()

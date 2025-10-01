@@ -23,18 +23,20 @@ gl_exceldb_list = [
     "TutorialCharacterDialogExcel"
 ]
 
+
 if not os.path.exists("TW_excels"):
     os.mkdir("TW_excels")
 
-if not os.path.exists("TW_excels/excel"):
-    os.mkdir("TW_excels/excel")
-excel_dir = os.path.join("TW_excels", "excel")
+excel_dir = os.path.join("TW_excels", "Excel_Dumped")
+if not os.path.exists(excel_dir):
+    os.mkdir(excel_dir)
 
 
-if not os.path.exists("TW_excels/exceldb"):
-    os.mkdir("TW_excels/exceldb")
+exceldb_dir = os.path.join("TW_excels", "ExcelDB_Dumped")
+if not os.path.exists(exceldb_dir):
+    os.mkdir(exceldb_dir)
 
-exceldb_dir = os.path.join("TW_excels", "exceldb")
+
 
 if not os.path.exists("data"):
     os.mkdir("data")
@@ -109,6 +111,11 @@ def main():
                 for t in data:
                     translation[f"{i}.{t['Key']}.name"] = t['NameTw']
                     translation[f"{i}.{t['Key']}.description"] = t['DescriptionTw']
+                    #Todo NameTw 為空 和 'DescriptionTw 為空 要刪除
+                    if t['NameTw'] == "" and t['DescriptionTw'] == "":
+                        del translation[f"{i}.{t['Key']}.name"]
+                        del translation[f"{i}.{t['Key']}.description"]
+
             case "ScenarioScriptExcel":
                 for t in data:
                     translation[f"{i}.{t['GroupId']}.{base64.b64encode(str(t['ScriptKr']).encode()).decode()}"] = t['TextTw']
