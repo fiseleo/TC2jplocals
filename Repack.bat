@@ -5,7 +5,7 @@ cd Kuroko
 rem 執行程式
 echo.
 echo [INFO] Running Kuroko.exe...
-Kuroko.exe -v Japan -m Dump
+Kuroko.exe dump Japan
 
 rem 回到上一層目錄
 cd ..
@@ -28,7 +28,7 @@ xcopy "output\Excel_Dumped" "Kuroko\Resources\Japan\Dumped\Excel_Dumped\" /E /I 
 xcopy "output\ExcelDB_Dumped" "Kuroko\Resources\Japan\Dumped\ExcelDB_Dumped\" /E /I /Y
 
 cd Kuroko
-Kuroko.exe -v Japan -m Repack
+Kuroko.exe repack Japan 
 echo.
 echo [SUCCESS] Script finished.
 pause
